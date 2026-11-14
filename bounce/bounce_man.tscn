@@ -6,21 +6,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
 size = Vector2(15, 58)
 
-[node name="BounceMan" type="Node2D" unique_id=507666928]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=809229440]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1331981265]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1051374315]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607664462]
 position = Vector2(-0.5, 21)
 shape = SubResource("RectangleShape2D_6hadj")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=558488139]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=52741818]
 texture_filter = 1
 texture = ExtResource("1_7soc0")
 hframes = 3
 vframes = 3
 
-[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D" unique_id=1792900632]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=220928362]
 color = Color(0.897786, 0.9134479, 0.7382495, 1)
 energy = 1.4
 shadow_enabled = true

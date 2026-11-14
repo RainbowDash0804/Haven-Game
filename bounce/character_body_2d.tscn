@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b5vips2kturr7"]
+
+[ext_resource type="Texture2D" uid="uid://d0dsnyfw1ylm2" path="res://Ruin-1.png" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://i050ywhvfapa" path="res://circle-symbol-graphic-free-png.webp" id="2_ghijl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkp3o"]
+size = Vector2(24, 46)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=409103435]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1525486403]
+texture_filter = 1
+texture = ExtResource("1_ij6vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=913423107]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_bkp3o")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=304882857]
+texture = ExtResource("2_ghijl")
