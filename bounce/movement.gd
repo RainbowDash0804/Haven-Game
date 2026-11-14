@@ -6,7 +6,7 @@ var dive_speed = 3000.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var ground_speed = 100.0
-var ground_acceleration = 10.0
+var ground_acceleration = 5.0
 var prev_y = 0.0
 
 var coyote_time = 0.0
