@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ct6a8nfl3ne2a"]
+
+[ext_resource type="Texture2D" uid="uid://kex40rqu6aja" path="res://Oxycrystal.png" id="1_cdwae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
+
+[node name="OxyCrystal" type="Node2D" unique_id=2027466863]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2008683999]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1152147301]
+shape = SubResource("RectangleShape2D_6hadj")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1066390162]
+texture_filter = 1
+texture = ExtResource("1_cdwae")

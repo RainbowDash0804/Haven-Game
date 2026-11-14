@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cp50oc2r41kgu"]
+
+[ext_resource type="Texture2D" uid="uid://bkd5f15j8hva" path="res://Gasoline.png" id="1_anp12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
+
+[node name="Gasoline" type="Node2D" unique_id=682095926]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=562139822]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1485439256]
+shape = SubResource("RectangleShape2D_6hadj")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1303074219]
+texture_filter = 1
+texture = ExtResource("1_anp12")
