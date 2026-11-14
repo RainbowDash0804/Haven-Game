@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drd5key3beu8a"]
 
 [ext_resource type="Texture2D" uid="uid://cj4ahg1737uli" path="res://New Piskel (1).png" id="1_7soc0"]
-[ext_resource type="Script" uid="uid://cnlomgcgwvw8b" path="res://character_body_2d.gd" id="1_53rx0"]
+[ext_resource type="Script" uid="uid://dtylbycm53x2u" path="res://movement.gd" id="1_53rx0"]
 [ext_resource type="Texture2D" uid="uid://i050ywhvfapa" path="res://circle-symbol-graphic-free-png.webp" id="2_53rx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
