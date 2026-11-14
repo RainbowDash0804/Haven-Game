@@ -5,8 +5,8 @@ var fall_speed = 1000.0
 var dive_speed = 3000.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var ground_speed = 300.0
-var ground_acceleration = 1.0
+var ground_speed = 100.0
+var ground_acceleration = 10.0
 var prev_y = 0.0
 
 var coyote_time = 0.0
@@ -29,7 +29,10 @@ func handle_movement_states(delta):
 		MovementStates.WALKING:
 			if direction:
 				velocity.x = direction * ground_speed
-				ground_speed += direction * ground_acceleration
+				if direction == 1.0:
+					ground_speed += direction * ground_acceleration
+				else: 
+					ground_speed -= direction * ground_acceleration
 		MovementStates.FALLING:
 			velocity.x = direction * ground_speed
 			velocity += get_gravity().normalized() * fall_speed * delta
