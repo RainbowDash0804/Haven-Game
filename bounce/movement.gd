@@ -9,6 +9,8 @@ var ground_speed = 300.0
 var ground_acceleration = 1.0
 var prev_y = 0.0
 
+var coyote_time = 0.0
+
 enum MovementStates {
 	IDLE,
 	WALKING,
@@ -57,6 +59,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		animated_sprite_2d.animation = "Jump"
+		coyote_time += delta
+	else:
+		coyote_time = 0.0
 		
 	if velocity.x > 1 or velocity.x < -1:
 		$AnimatedSprite2D.animation = "Move"
@@ -65,7 +70,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.animation = "Idle"
 		
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if is_on_floor():
+	if is_on_floor() or coyote_time < 0.1:
 		diving = false
 		if prev_y > 100.0 and state == MovementStates.DIVING and not bounce:
 			print(prev_y)
