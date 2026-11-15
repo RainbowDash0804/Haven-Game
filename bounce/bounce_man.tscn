@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cj4ahg1737uli" path="res://New Piskel (1).png" id="1_7soc0"]
 [ext_resource type="Script" uid="uid://cnlomgcgwvw8b" path="res://character_body_2d.gd" id="1_53rx0"]
 [ext_resource type="Texture2D" uid="uid://i050ywhvfapa" path="res://circle-symbol-graphic-free-png.webp" id="2_53rx0"]
+[ext_resource type="Script" uid="uid://dfuo2v2ruwf5u" path="res://timer.gd" id="4_wcbwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
 size = Vector2(15, 58)
@@ -92,6 +93,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Theme" id="Theme_6hadj"]
+
 [node name="BounceMan" type="Node2D" unique_id=507666928]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1331981265]
@@ -140,3 +143,40 @@ sprite_frames = SubResource("SpriteFrames_6hadj")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.019960906
+
+[node name="GasLabel" type="Label" parent="CharacterBody2D" unique_id=1431018459]
+offset_left = 487.0
+offset_top = -322.0
+offset_right = 573.0
+offset_bottom = -299.0
+theme = SubResource("Theme_6hadj")
+text = "Gasoline: X"
+
+[node name="StargelLabel" type="Label" parent="CharacterBody2D" unique_id=1371769843]
+offset_left = 487.0
+offset_top = -300.0
+offset_right = 573.0
+offset_bottom = -277.0
+theme = SubResource("Theme_6hadj")
+text = "Stargel: X"
+
+[node name="OxyCrylabel" type="Label" parent="CharacterBody2D" unique_id=897464471]
+offset_left = 473.0
+offset_top = -276.0
+offset_right = 573.0
+offset_bottom = -253.0
+theme = SubResource("Theme_6hadj")
+text = "Oxycrystal: X"
+
+[node name="Timer" type="Label" parent="CharacterBody2D" unique_id=1481886962]
+offset_left = -576.0
+offset_top = -321.0
+offset_right = -476.0
+offset_bottom = -298.0
+theme = SubResource("Theme_6hadj")
+text = "00:00:00"
+script = ExtResource("4_wcbwc")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D/Timer" unique_id=1273103032]
+wait_time = 120.0
+autostart = true

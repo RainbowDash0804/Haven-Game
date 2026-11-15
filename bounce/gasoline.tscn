@@ -2,15 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bkd5f15j8hva" path="res://Gasoline.png" id="1_anp12"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4p16"]
 
-[node name="Gasoline" type="Node2D" unique_id=682095926]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=562139822]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1485439256]
-shape = SubResource("RectangleShape2D_6hadj")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1303074219]
+[node name="Gasoline" type="Area2D" unique_id=2125424444]
 texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826518509]
+shape = SubResource("RectangleShape2D_i4p16")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=409831241]
 texture = ExtResource("1_anp12")

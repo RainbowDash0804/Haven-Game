@@ -4,13 +4,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
 
-[node name="OxyCrystal" type="Node2D" unique_id=2027466863]
+[node name="Oxycrystal" type="Area2D" unique_id=173441786]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2008683999]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1152147301]
-shape = SubResource("RectangleShape2D_6hadj")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1066390162]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2094734208]
 texture_filter = 1
 texture = ExtResource("1_cdwae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1246925708]
+shape = SubResource("RectangleShape2D_6hadj")
