@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://drd5key3beu8a"]
 
 [ext_resource type="Texture2D" uid="uid://cj4ahg1737uli" path="res://New Piskel (1).png" id="1_7soc0"]
-[ext_resource type="Script" uid="uid://cnlomgcgwvw8b" path="res://character_body_2d.gd" id="1_53rx0"]
+[ext_resource type="Script" uid="uid://4kawx8kvjlhw" path="res://movement.gd" id="1_53rx0"]
 [ext_resource type="Texture2D" uid="uid://i050ywhvfapa" path="res://circle-symbol-graphic-free-png.webp" id="2_53rx0"]
 [ext_resource type="Script" uid="uid://dfuo2v2ruwf5u" path="res://timer.gd" id="4_wcbwc"]
+
+[sub_resource type="Theme" id="Theme_wcbwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
 size = Vector2(15, 58)
@@ -93,12 +95,63 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Theme" id="Theme_6hadj"]
-
 [node name="BounceMan" type="Node2D" unique_id=507666928]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1331981265]
 script = ExtResource("1_53rx0")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1101741675]
+position = Vector2(-129, -358)
+offset = Vector2(129, 358)
+
+[node name="GasLabel" type="Label" parent="CharacterBody2D/Camera2D" unique_id=1051662091]
+offset_left = 429.0
+offset_top = -288.0
+offset_right = 515.0
+offset_bottom = -265.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(129, 358)
+theme = SubResource("Theme_wcbwc")
+text = "Gasoline: X"
+metadata/_edit_use_anchors_ = true
+
+[node name="StargelLabel" type="Label" parent="CharacterBody2D/Camera2D" unique_id=1125173969]
+offset_left = 429.0
+offset_top = -266.0
+offset_right = 515.0
+offset_bottom = -243.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(129, 358)
+theme = SubResource("Theme_wcbwc")
+text = "Stargel: X"
+metadata/_edit_use_anchors_ = true
+
+[node name="OxyCrylabel" type="Label" parent="CharacterBody2D/Camera2D" unique_id=2089097174]
+offset_left = 415.0
+offset_top = -242.0
+offset_right = 515.0
+offset_bottom = -219.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(129, 358)
+theme = SubResource("Theme_wcbwc")
+text = "Oxycrystal: X"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Label" parent="CharacterBody2D/Camera2D" unique_id=1222698397]
+offset_left = -543.0
+offset_top = -288.0
+offset_right = -443.0
+offset_bottom = -265.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(129, 358)
+theme = SubResource("Theme_wcbwc")
+text = "00:00:00"
+script = ExtResource("4_wcbwc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CharacterBody2D/Camera2D/Timer" unique_id=666027344]
+wait_time = 10.0
+autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1051374315]
 position = Vector2(-0.5, 21)
@@ -107,14 +160,14 @@ shape = SubResource("RectangleShape2D_6hadj")
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D" unique_id=1792900632]
 light_mask = 3
 color = Color(0.897786, 0.9134479, 0.7382495, 1)
-energy = 0.45
+energy = 1.35
 range_item_cull_mask = 3
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
 shadow_item_cull_mask = 3
 texture = ExtResource("2_53rx0")
-texture_scale = 0.12
+texture_scale = 0.5
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D" unique_id=644520728]
 z_index = 1
@@ -134,49 +187,9 @@ lifetime = 12.94
 randomness = 0.97
 process_material = SubResource("ParticleProcessMaterial_i4p16")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2002848110]
-position_smoothing_enabled = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=170777969]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_6hadj")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.019960906
-
-[node name="GasLabel" type="Label" parent="CharacterBody2D" unique_id=1431018459]
-offset_left = 487.0
-offset_top = -322.0
-offset_right = 573.0
-offset_bottom = -299.0
-theme = SubResource("Theme_6hadj")
-text = "Gasoline: X"
-
-[node name="StargelLabel" type="Label" parent="CharacterBody2D" unique_id=1371769843]
-offset_left = 487.0
-offset_top = -300.0
-offset_right = 573.0
-offset_bottom = -277.0
-theme = SubResource("Theme_6hadj")
-text = "Stargel: X"
-
-[node name="OxyCrylabel" type="Label" parent="CharacterBody2D" unique_id=897464471]
-offset_left = 473.0
-offset_top = -276.0
-offset_right = 573.0
-offset_bottom = -253.0
-theme = SubResource("Theme_6hadj")
-text = "Oxycrystal: X"
-
-[node name="Timer" type="Label" parent="CharacterBody2D" unique_id=1481886962]
-offset_left = -576.0
-offset_top = -321.0
-offset_right = -476.0
-offset_bottom = -298.0
-theme = SubResource("Theme_6hadj")
-text = "00:00:00"
-script = ExtResource("4_wcbwc")
-
-[node name="Timer" type="Timer" parent="CharacterBody2D/Timer" unique_id=1273103032]
-wait_time = 120.0
-autostart = true
