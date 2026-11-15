@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://bidkty55qj07v"]
+
+[ext_resource type="Script" uid="uid://cvuxsntf6i7e1" path="res://title.gd" id="1_nuqgq"]
+[ext_resource type="PackedScene" uid="uid://cp50oc2r41kgu" path="res://gasoline.tscn" id="2_nuqgq"]
+[ext_resource type="Texture2D" uid="uid://tyv1dfj33a6j" path="res://SHip.png" id="3_lx2ly"]
+[ext_resource type="PackedScene" uid="uid://bophctxoghdrk" path="res://star_gel.tscn" id="4_jil77"]
+[ext_resource type="PackedScene" uid="uid://ct6a8nfl3ne2a" path="res://oxy_crystal.tscn" id="5_16uvt"]
+[ext_resource type="Texture2D" uid="uid://i050ywhvfapa" path="res://circle-symbol-graphic-free-png.webp" id="6_nuqgq"]
+[ext_resource type="Texture2D" uid="uid://cj4ahg1737uli" path="res://New Piskel (1).png" id="7_lx2ly"]
+
+[sub_resource type="Gradient" id="Gradient_3ranr"]
+colors = PackedColorArray(0, 0, 0, 1, 0.28729492, 0.28729492, 0.2872949, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dno37"]
+gradient = SubResource("Gradient_3ranr")
+fill_from = Vector2(1, 0.9364162)
+fill_to = Vector2(0.99710983, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ueec"]
+size = Vector2(22.163424, 16.395504)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bkp3o"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jil77"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1500, 1, 1)
+gravity = Vector3(20, 98, 0)
+scale_min = 0.0
+scale_max = 0.099999994
+color = Color(0.23874435, 0.23874438, 0.23874435, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_16uvt"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+gravity = Vector3(20, 98, 0)
+scale_min = 0.0
+scale_max = 0.049999997
+color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53rx0"]
+atlas = ExtResource("7_lx2ly")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcbwc"]
+atlas = ExtResource("7_lx2ly")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b7hl"]
+atlas = ExtResource("7_lx2ly")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42w07"]
+atlas = ExtResource("7_lx2ly")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8iet"]
+atlas = ExtResource("7_lx2ly")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_754vy"]
+atlas = ExtResource("7_lx2ly")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eb62"]
+atlas = ExtResource("7_lx2ly")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_upcoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53rx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcbwc")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b7hl")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42w07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8iet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_754vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eb62")
+}],
+"loop": 1,
+"name": &"Move",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=444438445]
+script = ExtResource("1_nuqgq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097086219]
+light_mask = 2
+z_index = -5
+position = Vector2(3133.5, 1376.5006)
+scale = Vector2(104.87441, 82.038284)
+texture = SubResource("GradientTexture2D_dno37")
+
+[node name="Gasoline" parent="." unique_id=2125424444 instance=ExtResource("2_nuqgq")]
+position = Vector2(249, 481.00003)
+rotation = 0.24451168
+scale = Vector2(2.7943847, 2.6481874)
+
+[node name="Ship" type="Sprite2D" parent="." unique_id=1761567446]
+z_index = -5
+texture_filter = 1
+position = Vector2(458, 275)
+scale = Vector2(23.980883, 18.730991)
+texture = ExtResource("3_lx2ly")
+
+[node name="Area2D" type="Area2D" parent="Ship" unique_id=1234929752]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D" unique_id=1717838474]
+position = Vector2(-1.307393, 5.5011196)
+shape = SubResource("RectangleShape2D_7ueec")
+
+[node name="StarGel" parent="." unique_id=195247169 instance=ExtResource("4_jil77")]
+position = Vector2(437.9999, 492.99997)
+scale = Vector2(3.0334327, 3.81112)
+
+[node name="OxyCrystal" parent="." unique_id=173441786 instance=ExtResource("5_16uvt")]
+position = Vector2(598, 441)
+scale = Vector2(3.8611042, 4.2547936)
+
+[node name="Label" type="Label" parent="." unique_id=1881761268]
+offset_left = 70.0
+offset_top = 47.0
+offset_right = 237.0
+offset_bottom = 148.0
+scale = Vector2(3.7016594, 3.7293298)
+text = "Bounce
+Man
+Expeditions
+"
+
+[node name="Label2" type="Label" parent="." unique_id=973642617]
+offset_left = 877.0
+offset_top = 407.0
+offset_right = 1020.0
+offset_bottom = 482.0
+scale = Vector2(3.7016594, 3.7293298)
+text = "Press
+Enter
+"
+label_settings = SubResource("LabelSettings_bkp3o")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1212679709]
+position = Vector2(732, 341)
+scale = Vector2(4.345898, 3.9667645)
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D" unique_id=2069347559]
+light_mask = 3
+color = Color(0.897786, 0.9134479, 0.7382495, 1)
+energy = 0.45
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+shadow_item_cull_mask = 3
+texture = ExtResource("6_nuqgq")
+texture_scale = 0.12
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D" unique_id=2138338680]
+z_index = 1
+position = Vector2(3, -324)
+amount = 100
+texture = ExtResource("6_nuqgq")
+lifetime = 12.94
+randomness = 0.97
+process_material = SubResource("ParticleProcessMaterial_jil77")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="CharacterBody2D" unique_id=313549832]
+z_index = -1
+position = Vector2(3, -324)
+amount = 100
+texture = ExtResource("6_nuqgq")
+lifetime = 12.94
+randomness = 0.97
+process_material = SubResource("ParticleProcessMaterial_16uvt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1604417469]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_upcoo")
+animation = &"Idle"
+autoplay = "Idle"

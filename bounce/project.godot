@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bounce"
-run/main_scene="uid://16xrk017pjdl"
+run/main_scene="uid://bidkty55qj07v"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
