@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bidkty55qj07v"]
+
+[ext_resource type="PackedScene" uid="uid://drd5key3beu8a" path="res://bounce_man.tscn" id="1_0824t"]
+[ext_resource type="PackedScene" uid="uid://cp50oc2r41kgu" path="res://gasoline.tscn" id="2_nuqgq"]
+[ext_resource type="Texture2D" uid="uid://tyv1dfj33a6j" path="res://SHip.png" id="3_lx2ly"]
+[ext_resource type="PackedScene" uid="uid://bophctxoghdrk" path="res://star_gel.tscn" id="4_jil77"]
+[ext_resource type="PackedScene" uid="uid://ct6a8nfl3ne2a" path="res://oxy_crystal.tscn" id="5_16uvt"]
+
+[sub_resource type="Gradient" id="Gradient_3ranr"]
+colors = PackedColorArray(0, 0, 0, 1, 0.28729492, 0.28729492, 0.2872949, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dno37"]
+gradient = SubResource("Gradient_3ranr")
+fill_from = Vector2(1, 0.9364162)
+fill_to = Vector2(0.99710983, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ueec"]
+size = Vector2(22.163424, 16.395504)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bkp3o"]
+
+[node name="Node2D" type="Node2D" unique_id=444438445]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097086219]
+light_mask = 2
+z_index = -5
+position = Vector2(2545, 974.99994)
+scale = Vector2(105.828125, 80.95315)
+texture = SubResource("GradientTexture2D_dno37")
+
+[node name="BounceMan" parent="." unique_id=507666928 instance=ExtResource("1_0824t")]
+position = Vector2(4, 0)
+
+[node name="Gasoline" parent="." unique_id=2125424444 instance=ExtResource("2_nuqgq")]
+position = Vector2(-183, -35)
+rotation = 0.2445117
+
+[node name="Ship" type="Sprite2D" parent="." unique_id=1761567446]
+z_index = -5
+texture_filter = 1
+position = Vector2(-100.5, -36.249973)
+scale = Vector2(8.03125, 6.953125)
+texture = ExtResource("3_lx2ly")
+
+[node name="Area2D" type="Area2D" parent="Ship" unique_id=1234929752]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D" unique_id=1717838474]
+position = Vector2(-1.307393, 5.5011196)
+shape = SubResource("RectangleShape2D_7ueec")
+
+[node name="StarGel" parent="." unique_id=195247169 instance=ExtResource("4_jil77")]
+position = Vector2(-111, 39)
+
+[node name="OxyCrystal" parent="." unique_id=173441786 instance=ExtResource("5_16uvt")]
+position = Vector2(17, 35)
+
+[node name="Label" type="Label" parent="." unique_id=1881761268]
+offset_left = -192.0
+offset_top = -146.0
+offset_right = -25.0
+offset_bottom = -45.0
+text = "Bounce
+Man
+Expeditions
+"
+
+[node name="Label2" type="Label" parent="." unique_id=973642617]
+offset_left = -48.0
+offset_top = -126.0
+offset_right = 95.0
+offset_bottom = -51.0
+text = "Press
+Enter
+"
+label_settings = SubResource("LabelSettings_bkp3o")
