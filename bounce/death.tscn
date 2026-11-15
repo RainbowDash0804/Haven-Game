@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bqowrf5scavyg"]
 
+[ext_resource type="Script" uid="uid://oqh1ljkvll6u" path="res://death.gd" id="1_lf77f"]
 [ext_resource type="Texture2D" uid="uid://dahiucui64sxh" path="res://New Piskel-1.png(1).png" id="1_qemge"]
 
 [node name="Death" type="Node2D" unique_id=692358383]
+script = ExtResource("1_lf77f")
 
 [node name="NewPiskel1_png(1)" type="Sprite2D" parent="." unique_id=1628145485]
 texture_filter = 1
