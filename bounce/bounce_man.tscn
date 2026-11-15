@@ -150,7 +150,7 @@ script = ExtResource("4_wcbwc")
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="CharacterBody2D/Camera2D/Timer" unique_id=666027344]
-wait_time = 10.0
+wait_time = 180.0
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1051374315]

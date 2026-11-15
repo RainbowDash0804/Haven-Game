@@ -11,11 +11,7 @@ func timeranout() -> void:
 	get_tree().change_scene_to_file("res://death.tscn")
 	if Input.is_action_just_pressed("ui_accept"):
 		print(get_tree())
-		match level:
-			0:
-				get_tree().change_scene_to_file("res://world.tscn")
-			1:
-				get_tree().change_scene_to_file("res://level2.tscn")
+		
 		print(timer.start())
 
 func time_left_to_live():

@@ -13,9 +13,6 @@ var dive_speed = 3000.0
 @onready var ship = $"../../Ship/Area2D"
 @onready var timer = $Camera2D/Timer
 
-var bounce_enable = false
-var sprint_enable = false
-
 var ground_speed = 100.0
 var ground_acceleration = 5.0
 var prev_y = 0.0
@@ -40,7 +37,7 @@ func handle_movement_states(delta):
 		MovementStates.WALKING:
 			if direction:
 				velocity.x = direction * ground_speed
-				if sprint_enable:
+				if Variables.sprint_enable:
 					if direction == 1.0:
 						ground_speed += direction * ground_acceleration
 					else: 
@@ -95,14 +92,19 @@ func _physics_process(delta: float) -> void:
 		gasoline.visible = false
 		
 	if ship.has_overlapping_bodies() and not gasoline.visible and not stargel.visible and not oxycrystal.visible:
-		get_tree().change_scene_to_file("res://level2.tscn")
-		bounce_enable = true
-		timer.level = 1
+		match Variables.level:
+			0:
+				Variables.bounce_enable = true
+				get_tree().change_scene_to_file("res://level2.tscn")
+				Variables.level = 1
+			1:
+				#win
+				get_tree().change_scene_to_file("res://level2.tscn")
 		
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if is_on_floor() or coyote_time < 0.1:
 		diving = false
-		if prev_y > 100.0 and state == MovementStates.DIVING and not bounce and bounce_enable:
+		if prev_y > 100.0 and state == MovementStates.DIVING and not bounce and Variables.bounce_enable:
 			print(prev_y)
 			bounce = true
 			new_state = MovementStates.DIVING
