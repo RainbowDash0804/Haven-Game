@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b41s1xyyrtihp"]
+
+[ext_resource type="Script" uid="uid://c7lpyrev6iy0t" path="res://button.gd" id="1_v6p8y"]
+
+[node name="TitleScreen" type="Node2D" unique_id=192891002]
+
+[node name="Label" type="Label" parent="." unique_id=808381987]
+offset_left = 291.0
+offset_top = 173.59505
+offset_right = 453.0
+offset_bottom = 196.59505
+scale = Vector2(2.7140954, -2.3736978)
+text = "ITS TIME TO BOUNCE"
+
+[node name="Label2" type="Label" parent="." unique_id=665640372]
+offset_left = 291.0
+offset_top = 173.59505
+offset_right = 453.0
+offset_bottom = 196.59505
+scale = Vector2(3.7389085, 2.12002)
+text = "ITS TIME TO BOUNCE"
+
+[node name="Button" type="Button" parent="." unique_id=202076518]
+offset_left = 442.0
+offset_top = 353.0
+offset_right = 483.0
+offset_bottom = 384.0
+scale = Vector2(4.8673053, 2.426143)
+text = "Play"
+script = ExtResource("1_v6p8y")

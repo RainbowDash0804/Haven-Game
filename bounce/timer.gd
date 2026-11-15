@@ -1,0 +1,20 @@
+extends Label
+@onready var label = $"."
+@onready var timer = $Timer
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	timer.timeout.connect(timeranout)
+	pass # Replace with function body.
+func timeranout() -> void:
+	get_tree().change_scene_to_file("res://death.tscn")
+
+func time_left_to_live():
+	var timeLeft = timer.time_left
+	var minute = floor(timeLeft / 60)
+	var second = int(timeLeft) % 60
+	return [minute, second]
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	label.text = "%02d:%02d" % time_left_to_live()
+	

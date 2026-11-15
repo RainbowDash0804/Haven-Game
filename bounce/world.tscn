@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://16xrk017pjdl"]
 
+[ext_resource type="Script" uid="uid://dr46or2pnoqbn" path="res://world.gd" id="1_dwbse"]
 [ext_resource type="Texture2D" uid="uid://c0jlf62slhnp0" path="res://New Piskel-1.png.png" id="1_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://i050ywhvfapa" path="res://circle-symbol-graphic-free-png.webp" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://drd5key3beu8a" path="res://bounce_man.tscn" id="3_tlwt5"]
 [ext_resource type="Texture2D" uid="uid://tyv1dfj33a6j" path="res://SHip.png" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://cp50oc2r41kgu" path="res://gasoline.tscn" id="5_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://bophctxoghdrk" path="res://star_gel.tscn" id="7_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://ct6a8nfl3ne2a" path="res://oxy_crystal.tscn" id="8_gbfbk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqk2v"]
 resource_name = "WorldMap"
@@ -348,10 +352,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_aqk2v")
 
 [sub_resource type="Gradient" id="Gradient_tlwt5"]
+colors = PackedColorArray(0, 0, 0, 1, 0.28729492, 0.28729492, 0.2872949, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_i4p16"]
 gradient = SubResource("Gradient_tlwt5")
-fill_from = Vector2(1, 0.72254336)
+fill_from = Vector2(1, 0.9364162)
+fill_to = Vector2(0.99710983, 0)
 
 [sub_resource type="Gradient" id="Gradient_aqk2v"]
 offsets = PackedFloat32Array(0, 0.9962963)
@@ -360,7 +366,11 @@ colors = PackedColorArray(0.010090298, 0.0100903055, 0.010090278, 1, 0.012118355
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_7xoj5"]
 gradient = SubResource("Gradient_aqk2v")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
+size = Vector2(22.163424, 16.395504)
+
 [node name="World" type="Node2D" unique_id=651097426]
+script = ExtResource("1_dwbse")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1459018549]
 texture_filter = 1
@@ -523,9 +533,24 @@ position = Vector2(2219.25, 1468.75)
 scale = Vector2(2.0566409, 1064.5)
 texture = SubResource("GradientTexture1D_7xoj5")
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=761867562]
+[node name="Ship" type="Sprite2D" parent="." unique_id=761867562]
 z_index = -5
 texture_filter = 1
 position = Vector2(17.5, 309.75)
 scale = Vector2(8.03125, 6.953125)
 texture = ExtResource("4_aqk2v")
+
+[node name="Area2D" type="Area2D" parent="Ship" unique_id=275815753]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D" unique_id=709296359]
+position = Vector2(-0.9338521, 6.7955055)
+shape = SubResource("RectangleShape2D_6hadj")
+
+[node name="Gasoline" parent="." unique_id=682095926 instance=ExtResource("5_pkg7o")]
+position = Vector2(1208, 748)
+
+[node name="StarGel" parent="." unique_id=1926369289 instance=ExtResource("7_gbfbk")]
+position = Vector2(1215, 1614)
+
+[node name="OxyCrystal" parent="." unique_id=2027466863 instance=ExtResource("8_gbfbk")]
+position = Vector2(1152, 2304)

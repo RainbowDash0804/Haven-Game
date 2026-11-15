@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bqowrf5scavyg"]
+
+[ext_resource type="Texture2D" uid="uid://dahiucui64sxh" path="res://New Piskel-1.png(1).png" id="1_qemge"]
+
+[node name="Death" type="Node2D" unique_id=692358383]
+
+[node name="NewPiskel1_png(1)" type="Sprite2D" parent="." unique_id=1628145485]
+texture_filter = 1
+position = Vector2(592, 334)
+scale = Vector2(16.539795, 7.882364)
+texture = ExtResource("1_qemge")
+
+[node name="Label" type="Label" parent="NewPiskel1_png(1)" unique_id=11927189]
+texture_filter = 1
+offset_left = -35.732002
+offset_top = -42.499947
+offset_right = 73.268
+offset_bottom = -19.499947
+scale = Vector2(0.39679417, 0.56169033)
+text = "Out of oxygen"
