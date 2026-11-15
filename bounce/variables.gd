@@ -1,6 +1,6 @@
 extends Node
 
-var level = 0
+var level = -1
 var bounce_enable = false
 var sprint_enable = false
 

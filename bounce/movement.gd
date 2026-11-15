@@ -50,7 +50,6 @@ func handle_movement_states(delta):
 			velocity += get_gravity().normalized() * dive_speed * delta
 			if bounce:
 				velocity.y = prev_y * -0.6
-				print(velocity.y)
 				bounce = false
 
 func transition_movement_states(new_state: MovementStates) -> MovementStates:
@@ -98,14 +97,13 @@ func _physics_process(delta: float) -> void:
 				get_tree().change_scene_to_file("res://level2.tscn")
 				Variables.level = 1
 			1:
-				#win
-				get_tree().change_scene_to_file("res://level2.tscn")
+				print("yay")
+				get_tree().change_scene_to_file("res://win_screen.tscn")
 		
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if is_on_floor() or coyote_time < 0.1:
 		diving = false
 		if prev_y > 100.0 and state == MovementStates.DIVING and not bounce and Variables.bounce_enable:
-			print(prev_y)
 			bounce = true
 			new_state = MovementStates.DIVING
 		elif direction:
