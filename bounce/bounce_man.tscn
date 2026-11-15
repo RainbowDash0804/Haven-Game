@@ -1,30 +1,182 @@
 [gd_scene format=3 uid="uid://drd5key3beu8a"]
 
 [ext_resource type="Texture2D" uid="uid://cj4ahg1737uli" path="res://New Piskel (1).png" id="1_7soc0"]
+[ext_resource type="Script" uid="uid://cnlomgcgwvw8b" path="res://character_body_2d.gd" id="1_53rx0"]
 [ext_resource type="Texture2D" uid="uid://i050ywhvfapa" path="res://circle-symbol-graphic-free-png.webp" id="2_53rx0"]
+[ext_resource type="Script" uid="uid://dfuo2v2ruwf5u" path="res://timer.gd" id="4_wcbwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hadj"]
 size = Vector2(15, 58)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7soc0"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1500, 1, 1)
+gravity = Vector3(20, 98, 0)
+scale_min = 0.0
+scale_max = 0.099999994
+color = Color(0.23874435, 0.23874438, 0.23874435, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i4p16"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+gravity = Vector3(20, 98, 0)
+scale_min = 0.0
+scale_max = 0.049999997
+color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53rx0"]
+atlas = ExtResource("1_7soc0")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcbwc"]
+atlas = ExtResource("1_7soc0")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b7hl"]
+atlas = ExtResource("1_7soc0")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42w07"]
+atlas = ExtResource("1_7soc0")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8iet"]
+atlas = ExtResource("1_7soc0")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_754vy"]
+atlas = ExtResource("1_7soc0")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eb62"]
+atlas = ExtResource("1_7soc0")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6hadj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53rx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcbwc")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b7hl")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42w07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8iet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_754vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eb62")
+}],
+"loop": 1,
+"name": &"Move",
+"speed": 10.0
+}]
+
+[sub_resource type="Theme" id="Theme_6hadj"]
+
 [node name="BounceMan" type="Node2D" unique_id=507666928]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1331981265]
+script = ExtResource("1_53rx0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1051374315]
 position = Vector2(-0.5, 21)
 shape = SubResource("RectangleShape2D_6hadj")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=558488139]
-texture_filter = 1
-texture = ExtResource("1_7soc0")
-hframes = 3
-vframes = 3
-
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D" unique_id=1792900632]
+light_mask = 3
 color = Color(0.897786, 0.9134479, 0.7382495, 1)
-energy = 1.4
+energy = 0.45
+range_item_cull_mask = 3
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
+shadow_item_cull_mask = 3
 texture = ExtResource("2_53rx0")
 texture_scale = 0.12
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D" unique_id=644520728]
+z_index = 1
+position = Vector2(3, -324)
+amount = 100
+texture = ExtResource("2_53rx0")
+lifetime = 12.94
+randomness = 0.97
+process_material = SubResource("ParticleProcessMaterial_7soc0")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="CharacterBody2D" unique_id=176512304]
+z_index = -1
+position = Vector2(3, -324)
+amount = 100
+texture = ExtResource("2_53rx0")
+lifetime = 12.94
+randomness = 0.97
+process_material = SubResource("ParticleProcessMaterial_i4p16")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2002848110]
+position_smoothing_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=170777969]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6hadj")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.019960906
+
+[node name="GasLabel" type="Label" parent="CharacterBody2D" unique_id=1431018459]
+offset_left = 487.0
+offset_top = -322.0
+offset_right = 573.0
+offset_bottom = -299.0
+theme = SubResource("Theme_6hadj")
+text = "Gasoline: X"
+
+[node name="StargelLabel" type="Label" parent="CharacterBody2D" unique_id=1371769843]
+offset_left = 487.0
+offset_top = -300.0
+offset_right = 573.0
+offset_bottom = -277.0
+theme = SubResource("Theme_6hadj")
+text = "Stargel: X"
+
+[node name="OxyCrylabel" type="Label" parent="CharacterBody2D" unique_id=897464471]
+offset_left = 473.0
+offset_top = -276.0
+offset_right = 573.0
+offset_bottom = -253.0
+theme = SubResource("Theme_6hadj")
+text = "Oxycrystal: X"
+
+[node name="Timer" type="Label" parent="CharacterBody2D" unique_id=1481886962]
+offset_left = -576.0
+offset_top = -321.0
+offset_right = -476.0
+offset_bottom = -298.0
+theme = SubResource("Theme_6hadj")
+text = "00:00:00"
+script = ExtResource("4_wcbwc")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D/Timer" unique_id=1273103032]
+wait_time = 120.0
+autostart = true
