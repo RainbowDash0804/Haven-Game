@@ -40,7 +40,7 @@ func handle_movement_states(delta):
 			velocity.x = direction * ground_speed
 			velocity += get_gravity().normalized() * dive_speed * delta
 			if bounce:
-				velocity.y = prev_y * -0.5
+				velocity.y = prev_y * -0.6
 				bounce = false
 
 func transition_movement_states(new_state: MovementStates) -> MovementStates:
