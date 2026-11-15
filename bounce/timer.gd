@@ -1,6 +1,7 @@
 extends Label
 @onready var label = $"."
 @onready var timer = $Timer
+var level = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,6 +9,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 func timeranout() -> void:
 	get_tree().change_scene_to_file("res://death.tscn")
+	if Input.is_action_just_pressed("ui_accept"):
+		print(get_tree())
+		
+		print(timer.start())
 
 func time_left_to_live():
 	var timeLeft = timer.time_left
